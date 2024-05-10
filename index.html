@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venda de Plantas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="#produtos" onclick="mostrarProdutos()">Produtos</a></li>
+            <li><a href="#contato" onclick="mostrarContato()">Contato</a></li>
+            <li><a href="#cadastro" onclick="mostrarCadastro()">Cadastro</a></li>
+            <li><a href="carrinho.html">Carrinho</a></li>
+        </ul>
+    </header>
+
+
+    <div class="hero">
+        <div class="logo">
+            <img src="https://images.tcdn.com.br/img/img_prod/1017342/1624554321_logo_oficial.png" alt="Logo da Empresa">
+        </div>
+    </div>
+
+    <div id="conteudo"></div>
+
+    <div class="content">
+        
+
+        <main>
+            <section id="produtos" style="display: none;">
+                <div class="produto">
+                    <img src="https://www.soflor.com.br/wp-content/uploads/2015/03/comprar-sementes-de-rosa-do-deserto-adenium-2-2-e1496340555997.jpg" alt="Planta 1">
+                    <h3>Rosa do Deserto</h3>
+                    <p class="preco">R$ 50,00</p>
+                    <p class="descricao">Linda Rosa do Deserto para decorar sua casa.</p>
+                    <button onclick="adicionarAoCarrinho('Rosa do Deserto', 50)">Adicionar ao Carrinho</button>
+                </div>
+               
+                <div class="produto">
+                    <img src="https://images.tcdn.com.br/img/img_prod/1080756/lirio_da_paz_florido_513_1_ac34e8b10b129e739c5a51f639005922.jpg" alt="Planta 2">
+                    <h3>Lírio da Paz</h3>
+                    <p class="preco">R$ 45,00</p>
+                    <p class="descricao">Elegante Lírio da Paz para ambiente interno.</p>
+                    <button onclick="adicionarAoCarrinho('Lírio da Paz', 45)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="produto">
+                    <img src="https://cdn.awsli.com.br/600x700/2429/2429322/produto/228053742/img_20230801_115837--1--3k1gv0tqyp.jpg" alt="Planta 3">
+                    <h3>Suculenta</h3>
+                    <p class="preco">R$ 55,00</p>
+                    <p class="descricao">Suculenta fácil de cuidar e ideal para espaços pequenos.</p>
+                    <button onclick="adicionarAoCarrinho('Suculenta', 55)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="produto">
+                    <img src="https://dw0jruhdg6fis.cloudfront.net/producao/26031872/G/cacto-medio-com-espinhos-no-vaso-.webp" alt="Planta 4">
+                    <h3>Cacto</h3>
+                    <p class="preco">R$ 40,00</p>
+                    <p class="descricao">Cacto resistente e decorativo para diversos ambientes.</p>
+                    <button onclick="adicionarAoCarrinho('Cacto', 40)">Adicionar ao Carrinho</button>
+                </div>
+            </section>
+
+            <section id="contato" style="display: none;">
+                <h2>Entre em Contato</h2>
+                <p>Envie um e-mail para <a href="mailto:seuemail@seudominio.com">joaopedrounivc@gmail.com</a> para obter mais informações.</p>
+            </section>
+
+            <section id="cadastro" style="display: none;">
+                <h2>Cadastro do Cliente</h2>
+                <form>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required><br>
+
+                    <label for="dataNascimento">Data de Nascimento:</label>
+                    <input type="date" id="dataNascimento" name="dataNascimento" required><br>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required><br>
+
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" required><br>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Venda de Plantas</p>
+    </footer>
+
+    <script>
+        function mostrarProdutos() {
+            document.getElementById('produtos').style.display = 'block';
+            document.getElementById('contato').style.display = 'none';
+            document.getElementById('cadastro').style.display = 'none';
+        }
+
+        function mostrarContato() {
+            document.getElementById('produtos').style.display = 'none';
+            document.getElementById('contato').style.display = 'block';
+            document.getElementById('cadastro').style.display = 'none';
+        }
+
+        function mostrarCadastro() {
+            document.getElementById('produtos').style.display = 'none';
+            document.getElementById('contato').style.display = 'none';
+            document.getElementById('cadastro').style.display = 'block';
+        }
+
+        function adicionarAoCarrinho(nome, preco) {
+            
+            alert(`Você adicionou ${nome} ao carrinho por R$ ${preco.toFixed(2)}`);
+        }
+    </script>
+</body>
+</html>

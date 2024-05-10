@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <h1>Seu Carrinho de Compras</h1>
+    </div>
+
+    <div class="content">
+        <div id="lista-produtos" class="produtos-carrinho">
+            
+        </div>
+        
+       
+        <button onclick="voltarParaProdutos()">Voltar aos Produtos</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Venda de Plantas</p>
+    </footer>
+
+    <script>
+       
+        function voltarParaProdutos() {
+            window.location.href = 'index.html#produtos';
+        }
+
+        function carregarCarrinho() {
+           
+            const listaProdutos = document.getElementById('lista-produtos');
+            const produtos = JSON.parse(localStorage.getItem('carrinho'));
+
+            if (produtos && produtos.length > 0) {
+                listaProdutos.innerHTML = ''; 
+
+                produtos.forEach(produto => {
+                    const itemProduto = document.createElement('div');
+                    itemProduto.classList.add('produto-carrinho');
+                    itemProduto.innerHTML = `
+                        <img src="${produto.imagem}" alt="${produto.nome}">
+                        <h3>${produto.nome}</h3>
+                        <p class="preco">R$ ${produto.preco.toFixed(2)}</p>
+                    `;
+                    listaProdutos.appendChild(itemProduto);
+                });
+            } else {
+                listaProdutos.innerHTML = '<p>Nenhum produto no carrinho.</p>';
+            }
+        }
+
+        
+        window.onload = carregarCarrinho;
+    </script>
+</body>
+</html>
